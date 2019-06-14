@@ -15,7 +15,7 @@
         <activity android:name=".menu" />
         <activity android:name=".Booking_detail" />
         <activity android:name=".register_activity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".login_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
