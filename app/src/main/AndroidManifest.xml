@@ -13,6 +13,7 @@
         <activity android:name=".food_activity" />
         <activity android:name=".booking_activity" />
         <activity android:name=".menu" />
+        <activity android:name=".Booking_detail" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
