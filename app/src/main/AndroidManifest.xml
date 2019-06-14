@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".order_activity" />
         <activity android:name=".food_activity" />
+        <activity android:name=".booking_activity" />
         <activity android:name=".menu" />
         <activity android:name=".MainActivity">
             <intent-filter>
