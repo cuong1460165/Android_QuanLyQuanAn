@@ -16,6 +16,8 @@
         <activity android:name=".menu" />
         <activity android:name=".Booking_detail" />
         <activity android:name=".Checkin" />
+        <activity android:name=".order_main" />
+        <activity android:name=".order_activity" />
         <activity android:name=".register_activity" />
         <activity android:name=".login_activity">
             <intent-filter>
