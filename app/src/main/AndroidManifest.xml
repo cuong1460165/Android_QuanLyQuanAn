@@ -12,6 +12,7 @@
         <activity android:name=".order_activity" />
         <activity android:name=".food_activity" />
         <activity android:name=".booking_activity" />
+        <activity android:name=".danhmuc" />
         <activity android:name=".menu" />
         <activity android:name=".Booking_detail" />
         <activity android:name=".Checkin" />
