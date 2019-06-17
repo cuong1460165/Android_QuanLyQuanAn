@@ -13,16 +13,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:text="Món ăn"
+            android:text="Danh sách món ăn"
             android:textAlignment="center"
             android:textSize="25dp" />
     </LinearLayout>
 
     <SearchView
+        android:layout_margin="5dp"
+        android:padding="5dp"
         android:id="@+id/searchFood"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></SearchView>
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_custom_background_shadow"
+        ></SearchView>
     <GridView
+        android:padding="5dp"
+        android:verticalSpacing="5dp"
         android:id="@+id/foodGV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
