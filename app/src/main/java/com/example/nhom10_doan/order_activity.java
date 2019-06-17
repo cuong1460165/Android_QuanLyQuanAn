@@ -7,23 +7,21 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class order_activity extends Activity {
-
     ArrayList<String> name = new ArrayList();
     ArrayList<String> dec = new ArrayList();
     ArrayList<Integer> image = new ArrayList();
     ArrayList<Integer> solg = new ArrayList();
     ArrayList<Integer> tien = new ArrayList();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        // set data
         name.add("Goi bo");
         name.add("Uc vit sot ruou vang");
         name.add("Bo cau tiem bi do");
@@ -81,7 +79,6 @@ public class order_activity extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
-
         final GridView gridView = (GridView) findViewById(R.id.orderGV);
         final GridviewAdapter_Order gridViewAdapter = new GridviewAdapter_Order(this, name, image, dec, solg);
         gridView.setAdapter(gridViewAdapter);
@@ -95,21 +92,16 @@ public class order_activity extends Activity {
             @Override
             public boolean onQueryTextSubmit(String query) {
 
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
                 ArrayList<String> name2 = new ArrayList();
                 ArrayList<String> dec2 = new ArrayList();
                 ArrayList<Integer> image2 = new ArrayList();
                 ArrayList<Integer> solg2 = new ArrayList();
 
                 Toast.makeText(order_activity.this,name.get(1),Toast.LENGTH_SHORT).show();
-                if(newText != "") {
+                if(query != "") {
                     int i = 0;
                     for (String item : name) {
-                        if (item.toLowerCase().contains(newText.toLowerCase())) {
+                        if (item.toLowerCase().contains(query.toLowerCase())) {
                             name2.add(name.get(i));
                             dec2.add(dec.get(i));
                             image2.add(image.get(i));
@@ -120,6 +112,11 @@ public class order_activity extends Activity {
                     final GridviewAdapter_Order gridViewAdapter2 = new GridviewAdapter_Order(order_activity.this, name2, image2, dec2, solg2);
                     gridView.setAdapter(gridViewAdapter2);
                 }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
                 return false;
             }
         });
@@ -148,7 +145,7 @@ public class order_activity extends Activity {
                     i++;
                 }
                 if ( check == true) {
-
+                    Toast.makeText(order_activity.this,"Bạn đã đặt món thành công",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(order_activity.this, order_main.class);
                     Bundle bundle = new Bundle();
                     bundle.putStringArrayList("name", name2);
@@ -161,6 +158,14 @@ public class order_activity extends Activity {
                 {
                     Toast.makeText(order_activity.this,"Vui lòng chọn món",Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        ImageView img = (ImageView) findViewById(R.id.back);
+        img.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(order_activity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }

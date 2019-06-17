@@ -21,7 +21,7 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Phiếu đặt món"
+                android:text="Hoá đơn"
                 android:textAlignment="center"
                 android:textSize="25dp"/>
         </LinearLayout>
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <GridView
-                    android:id="@+id/orderf"
+                    android:id="@+id/orderff"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -43,18 +43,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-                <TextView
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Tổng tiền: "
-                    android:paddingLeft="220dp"/>
-                <TextView
-                    android:textStyle="bold"
-                    android:id="@+id/tongtien"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="0"/>
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Tổng tiền: "
+                        android:paddingLeft="220dp"/>
+                    <TextView
+                        android:textStyle="bold"
+                        android:id="@+id/tongtienff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="0"/>
                     <TextView
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
@@ -62,10 +62,10 @@
                         android:text=" Đồng"/>
                 </LinearLayout>
                 <Button
-                    android:id="@+id/hoanthanh"
+                    android:id="@+id/thanhtoan"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Xác nhận"/>
+                    android:text="Thanh toán"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

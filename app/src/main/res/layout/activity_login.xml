@@ -30,12 +30,12 @@
             android:orientation="horizontal"
             android:layout_marginTop="100dp">
             <TextView
-                android:layout_width="100dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="Tên đăng nhập:"
 
                 android:textAlignment="viewEnd"
-                android:layout_marginLeft="80dp"/>
+                android:layout_marginLeft="30dp"/>
             <EditText
                 android:id="@+id/idTxt"
                 android:layout_width="100dp"

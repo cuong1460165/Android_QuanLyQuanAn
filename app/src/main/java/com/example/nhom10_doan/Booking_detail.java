@@ -3,10 +3,15 @@ package com.example.nhom10_doan;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,6 +27,9 @@ public class Booking_detail extends Activity {
         soKhach.add("2");
         soKhach.add("3");
         soKhach.add("4");
+
+        final EditText tenkhach = (EditText) findViewById(R.id.nameTxt);
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_detail);
@@ -67,7 +75,7 @@ public class Booking_detail extends Activity {
         adapter1.setDropDownViewResource
                 (android.R.layout.simple_list_item_single_choice);
         spnThoiGian.setAdapter(adapter1);
-        Button btnback = (Button) findViewById(R.id.btnQuayLai);
+        Button btnback = (Button) findViewById(R.id.btnQuayLai1);
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,5 +83,28 @@ public class Booking_detail extends Activity {
                 startActivity(intent);
             }
         });
+        Button btnxn = (Button) findViewById(R.id.btnXacNhan);
+        btnxn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (tenkhach == null)
+                {
+                    Toast.makeText(Booking_detail.this,"Vui lòng nhập tên người đặt bàn",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(Booking_detail.this, "Bạn đã đặt bàn thành công", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Booking_detail.this, booking_activity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+        ImageView img = (ImageView) findViewById(R.id.back);
+        img.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(Booking_detail.this, booking_activity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

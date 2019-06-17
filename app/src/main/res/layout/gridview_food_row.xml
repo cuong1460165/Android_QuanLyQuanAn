@@ -3,39 +3,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="3dp"
-    android:background="@drawable/my_custom_background_shadow"
-    android:elevation="20dp"
-    android:padding="10dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:layout_marginTop="3dp">
 
     <ImageView
-        android:id="@+id/imageFoodView"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:id="@+id/imageFoodView"
+        android:src="@drawable/test"
         android:padding="7dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/test" />
-
+        android:scaleType="centerInside"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
         <TextView
+            android:textSize="20sp"
+            android:text="Tên"
             android:id="@+id/foodNameView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
+            android:textStyle="bold"/>
         <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="Mô tả"
             android:id="@+id/fooddecView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:text="Mô tả" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </LinearLayout>
