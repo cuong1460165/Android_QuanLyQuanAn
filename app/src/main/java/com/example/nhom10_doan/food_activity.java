@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -14,15 +15,17 @@ public class food_activity extends AppCompatActivity {
     ArrayList<String> dec = new ArrayList();
     ArrayList<Integer> image = new ArrayList();
 
+    GridView gridView;
+    SearchView searchFood;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
-
+        mapping();
         initData();
 
 
-        GridView gridView = (GridView) findViewById(R.id.foodGV);
         GridViewAdapter_Food gridViewAdapter = new GridViewAdapter_Food(this, name, image, dec);
         gridView.setAdapter(gridViewAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -31,9 +34,37 @@ public class food_activity extends AppCompatActivity {
                 Toast.makeText(food_activity.this, dec.get(position), Toast.LENGTH_SHORT).show();
             }
         });
+
+        searchFood.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ArrayList<String> name2 = new ArrayList();
+                ArrayList<String> dec2 = new ArrayList();
+                ArrayList<Integer> image2 = new ArrayList();
+                if(newText != "") {
+                    int i = 0;
+                    for (String item : name) {
+                        if (item.toLowerCase().contains(newText.toLowerCase())) {
+                            name2.add(name.get(i));
+                            dec2.add(dec.get(i));
+                            image2.add(image.get(i));
+                            i++;
+                        }
+                    }
+                    GridViewAdapter_Food gridViewAdapter2 = new GridViewAdapter_Food(food_activity.this, name2, image2, dec2);
+                    gridView.setAdapter(gridViewAdapter2);
+                }
+                return false;
+            }
+        });
     }
 
-    private void initData(){
+    private void initData() {
         name.add("Goi bo");
         name.add("Uc vit sot ruou vang");
         name.add("Bo cau tiem bi do");
@@ -66,5 +97,10 @@ public class food_activity extends AppCompatActivity {
         image.add(R.drawable.h8);
         image.add(R.drawable.h9);
         image.add(R.drawable.h10);
+    }
+
+    private void mapping() {
+        gridView = (GridView) findViewById(R.id.foodGV);
+        searchFood = (SearchView) findViewById(R.id.searchFood);
     }
 }
