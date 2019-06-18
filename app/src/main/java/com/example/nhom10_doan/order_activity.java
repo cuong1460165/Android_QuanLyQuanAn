@@ -22,61 +22,71 @@ public class order_activity extends Activity {
     ArrayList<Integer> tien = new ArrayList();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        name.add("Goi bo");
-        name.add("Uc vit sot ruou vang");
-        name.add("Bo cau tiem bi do");
-        name.add("Ga nuong");
-        name.add("Bo la lot");
-        name.add("Heo toc quay lu chat met");
-        name.add("Ca tam nuong muoi ot");
-        name.add("Canh ga chien mat ong");
-        name.add("Goi cuon tom thit");
-        name.add("Ca chinh nuong muoi ot");
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+            name = bundle.getStringArrayList("name");
+            image = bundle.getIntegerArrayList("image");
+            dec = bundle.getStringArrayList("dec");
+            solg = bundle.getIntegerArrayList("solg");
+            tien = bundle.getIntegerArrayList("tien");
+        }
+        else {
+            name.add("Goi bo");
+            name.add("Uc vit sot ruou vang");
+            name.add("Bo cau tiem bi do");
+            name.add("Ga nuong");
+            name.add("Bo la lot");
+            name.add("Heo toc quay lu chat met");
+            name.add("Ca tam nuong muoi ot");
+            name.add("Canh ga chien mat ong");
+            name.add("Goi cuon tom thit");
+            name.add("Ca chinh nuong muoi ot");
 
-        dec.add("Goi bo");
-        dec.add("Uc vit sot ruou vang");
-        dec.add("Bo cau tiem bi do");
-        dec.add("Ga nuong");
-        dec.add("Bo la lot");
-        dec.add("Heo toc quay lu chat met");
-        dec.add("Ca tam nuong muoi ot");
-        dec.add("Canh ga chien mat ong");
-        dec.add("Goi cuon tom thit");
-        dec.add("Ca chinh nuong muoi ot");
+            dec.add("Goi bo");
+            dec.add("Uc vit sot ruou vang");
+            dec.add("Bo cau tiem bi do");
+            dec.add("Ga nuong");
+            dec.add("Bo la lot");
+            dec.add("Heo toc quay lu chat met");
+            dec.add("Ca tam nuong muoi ot");
+            dec.add("Canh ga chien mat ong");
+            dec.add("Goi cuon tom thit");
+            dec.add("Ca chinh nuong muoi ot");
 
-        image.add(R.drawable.h1);
-        image.add(R.drawable.h2);
-        image.add(R.drawable.h3);
-        image.add(R.drawable.h4);
-        image.add(R.drawable.h5);
-        image.add(R.drawable.h6);
-        image.add(R.drawable.h7);
-        image.add(R.drawable.h8);
-        image.add(R.drawable.h9);
-        image.add(R.drawable.h10);
+            image.add(R.drawable.h1);
+            image.add(R.drawable.h2);
+            image.add(R.drawable.h3);
+            image.add(R.drawable.h4);
+            image.add(R.drawable.h5);
+            image.add(R.drawable.h6);
+            image.add(R.drawable.h7);
+            image.add(R.drawable.h8);
+            image.add(R.drawable.h9);
+            image.add(R.drawable.h10);
 
-        solg.add(0);
-        solg.add(0);
-        solg.add(0);
-        solg.add(0);
-        solg.add(0);
-        solg.add(0);
-        solg.add(0);
-        solg.add(0);
-        solg.add(0);
-        solg.add(0);
+            solg.add(0);
+            solg.add(0);
+            solg.add(0);
+            solg.add(0);
+            solg.add(0);
+            solg.add(0);
+            solg.add(0);
+            solg.add(0);
+            solg.add(0);
+            solg.add(0);
 
-        tien.add(10000);
-        tien.add(20000);
-        tien.add(10000);
-        tien.add(30000);
-        tien.add(40000);
-        tien.add(10000);
-        tien.add(50000);
-        tien.add(60000);
-        tien.add(20000);
-        tien.add(10000);
-
+            tien.add(10000);
+            tien.add(20000);
+            tien.add(10000);
+            tien.add(30000);
+            tien.add(40000);
+            tien.add(10000);
+            tien.add(50000);
+            tien.add(60000);
+            tien.add(20000);
+            tien.add(10000);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
         final GridView gridView = (GridView) findViewById(R.id.orderGV);

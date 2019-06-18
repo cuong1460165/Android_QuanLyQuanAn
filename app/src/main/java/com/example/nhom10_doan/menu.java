@@ -16,10 +16,14 @@ public class menu extends Activity {
     ArrayList<String> name = new ArrayList();
     ArrayList<String> dec = new ArrayList();
     ArrayList<Integer> image = new ArrayList();
+    ArrayList<Integer> solg = new ArrayList();
+    ArrayList<Integer> tien = new ArrayList();
 
     ArrayList<String> name2 = new ArrayList();
     ArrayList<String> dec2 = new ArrayList();
     ArrayList<Integer> image2 = new ArrayList();
+    ArrayList<Integer> solg2 = new ArrayList();
+    ArrayList<Integer> tien2 = new ArrayList();
 
     ArrayList<Integer> random = new ArrayList();
     @Override
@@ -57,6 +61,28 @@ public class menu extends Activity {
         image.add(R.drawable.h9);
         image.add(R.drawable.h10);
 
+        solg.add(0);
+        solg.add(0);
+        solg.add(0);
+        solg.add(0);
+        solg.add(0);
+        solg.add(0);
+        solg.add(0);
+        solg.add(0);
+        solg.add(0);
+        solg.add(0);
+
+        tien.add(10000);
+        tien.add(20000);
+        tien.add(10000);
+        tien.add(30000);
+        tien.add(40000);
+        tien.add(10000);
+        tien.add(50000);
+        tien.add(60000);
+        tien.add(20000);
+        tien.add(10000);
+
         random = getRandomElementInteger(8);
 
         for (int i=0;i<8;i++)
@@ -64,6 +90,8 @@ public class menu extends Activity {
             name2.add(name.get(i));
             image2.add(image.get(i));
             dec2.add(dec.get(i));
+            solg2.add(solg.get(i));
+            tien2.add(tien.get(i));
         }
 
         super.onCreate(savedInstanceState);
@@ -77,11 +105,13 @@ public class menu extends Activity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(menu.this,"Lập menu thành công",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(menu.this, food_activity.class);
+                Intent intent = new Intent(menu.this, order_activity.class);
                 Bundle bundle = new Bundle();
                 bundle.putStringArrayList("name", name2);
                 bundle.putIntegerArrayList("image", image2);
                 bundle.putStringArrayList("dec", dec2);
+                bundle.putIntegerArrayList("solg", solg2);
+                bundle.putIntegerArrayList("tien", tien2);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
